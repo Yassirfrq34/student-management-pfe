@@ -1,0 +1,40 @@
+import './bootstrap';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
+// Import Pages
+import Login from './Pages/Login.jsx';
+import Dashboard from './Pages/Dashboard.jsx';
+import CreateStudent from './Pages/CreateStudent.jsx';
+import EditStudent from './Pages/EditStudent.jsx'; // <--- 1. IMPORT MUST BE HERE
+
+function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                {/* Default redirect */}
+                <Route path="/" element={<Navigate to="/login" />} />
+                
+                {/* Auth Routes */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                
+                {/* Student Management Routes */}
+                <Route path="/students/create" element={<CreateStudent />} />
+                
+                {/* 👇 THIS IS THE MISSING LINE 👇 */}
+                <Route path="/students/edit/:id" element={<EditStudent />} /> 
+            </Routes>
+        </BrowserRouter>
+    );
+}
+
+if (document.getElementById('app')) {
+    const Index = ReactDOM.createRoot(document.getElementById("app"));
+    Index.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    );
+}
