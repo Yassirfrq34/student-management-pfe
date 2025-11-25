@@ -7,24 +7,23 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './Pages/Login.jsx';
 import Dashboard from './Pages/Dashboard.jsx';
 import CreateStudent from './Pages/CreateStudent.jsx';
-import EditStudent from './Pages/EditStudent.jsx'; // <--- 1. IMPORT MUST BE HERE
+import EditStudent from './Pages/EditStudent.jsx';
+import Subjects from './Pages/Subjects.jsx'; // <--- NEW IMPORT
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                {/* Default redirect */}
                 <Route path="/" element={<Navigate to="/login" />} />
-                
-                {/* Auth Routes */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 
-                {/* Student Management Routes */}
+                {/* Students */}
                 <Route path="/students/create" element={<CreateStudent />} />
-                
-                {/* 👇 THIS IS THE MISSING LINE 👇 */}
                 <Route path="/students/edit/:id" element={<EditStudent />} /> 
+                
+                {/* Subjects (New Route) */}
+                <Route path="/subjects" element={<Subjects />} />
             </Routes>
         </BrowserRouter>
     );

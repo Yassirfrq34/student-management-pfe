@@ -7,7 +7,7 @@ export default function Dashboard() {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     
-    // 👇 GET THE ROLE
+    // Get the user role
     const role = localStorage.getItem('role');
 
     useEffect(() => {
@@ -64,12 +64,18 @@ export default function Dashboard() {
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <h2>🎓 Gestion des Étudiants</h2>
                 <div>
-                    {/* 👇 ONLY SHOW BUTTON IF ADMIN */}
+                    {/* Button: Gérer les Matières (Visible to everyone or restricted) */}
+                    <Link to="/subjects" className="btn btn-secondary me-2">
+                        📚 Gérer les Matières
+                    </Link>
+
+                    {/* Button: Ajouter (Admin Only) */}
                     {role === 'admin' && (
                         <Link to="/students/create" className="btn btn-success me-2">
                             + Ajouter
                         </Link>
                     )}
+                    
                     <button onClick={handleLogout} className="btn btn-danger">Déconnexion</button>
                 </div>
             </div>
@@ -100,7 +106,6 @@ export default function Dashboard() {
                                         <td>{student.phone}</td>
                                         <td>{student.level}</td>
                                         <td>
-                                            {/* 👇 ONLY SHOW ACTIONS IF ADMIN */}
                                             {role === 'admin' ? (
                                                 <>
                                                     <Link 
