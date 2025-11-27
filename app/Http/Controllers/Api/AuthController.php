@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    // 👇 THIS is the function Laravel was looking for!
     public function register(Request $request)
     {
         // 1. Validate Input

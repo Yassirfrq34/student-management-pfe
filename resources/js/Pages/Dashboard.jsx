@@ -76,6 +76,13 @@ export default function Dashboard() {
                         </Link>
                     )}
                     
+
+                    <Link to="/professors" className="btn btn-info text-white me-2">
+                     👨‍🏫 Professeurs</Link>
+
+
+
+
                     <button onClick={handleLogout} className="btn btn-danger">Déconnexion</button>
                 </div>
             </div>

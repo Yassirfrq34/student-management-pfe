@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\ProfileController;
-use App\Http\Controllers\Api\SubjectController; // 👈 THIS WAS MISSING!
+use App\Http\Controllers\Api\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Student Management (Admin Only)
     Route::apiResource('/students', StudentController::class);
 
-    // Subject Management (Admin Only) -> NEW!
+    // Subject Management (Admin Only)
     Route::apiResource('/subjects', SubjectController::class);
 
     // Student Profile (Self Service)
